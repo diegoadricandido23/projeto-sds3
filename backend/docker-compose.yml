@@ -1,0 +1,12 @@
+version: "3"
+services:
+  imaginary:
+    image: h2non/imaginary:latest
+    # optionally mount a volume as local image source
+    volumes:
+      - './images:/opt/h2/data'
+    environment:
+       PORT: 9000
+    command: -enable-url-source -mount /opt/h2/data
+    ports:
+      - "9000:9000"
