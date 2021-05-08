@@ -13,6 +13,7 @@ import com.devsuperior.dsvendas.entites.Sale;
  */
 public class SaleDTO {
 
+	private Long id;
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
@@ -23,8 +24,9 @@ public class SaleDTO {
 	public SaleDTO() {
 	}
 
-	public SaleDTO(Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
+	public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
 		super();
+		this.id = id;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
@@ -33,13 +35,22 @@ public class SaleDTO {
 	}
 
 	public SaleDTO(Sale sale) {
+		id = sale.getId();
 		visited = sale.getVisited();
 		deals = sale.getDeals();
 		amount = sale.getAmount();
 		date = sale.getDate();
 		seller = new SellerDTO(sale.getSeller());
 	}
-
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public Integer getVisited() {
 		return visited;
 	}
